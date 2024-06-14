@@ -57,8 +57,9 @@ struct Learn: Widget {
 
     var body: some WidgetConfiguration {
         makeWidgetConfiguration()
-            .configurationDisplayName("My Widget")
-            .description("This is an example widget.")
+            .configurationDisplayName("Learn Widget")
+            .description("This is an Learn widget.")
+            .supportedFamilies([.systemSmall, .systemMedium, .systemLarge])
     }
     
     func makeWidgetConfiguration() -> some WidgetConfiguration {

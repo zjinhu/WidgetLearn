@@ -11,9 +11,13 @@ import SwiftUI
 @main
 struct LearnBundle: WidgetBundle {
     var body: some Widget {
-        if #available(iOS 17.0, *) {
-            Learn()
-        }
+//        if #available(iOS 17.0, *) {
+//            Learn()
+//        }
+        
+        NetworkWidget()
+
+//        OldWidget()
         
         if #available(iOS 16.1, *) {
             LearnLiveActivity()

@@ -9,61 +9,80 @@ import SwiftUI
 import WidgetKit
 
 struct NetworkProvider: TimelineProvider {
+
     func placeholder(in context: Context) -> NetworkSimpleEntry {
         NetworkSimpleEntry(date: Date())
     }
-
+    
     func getSnapshot(in context: Context, completion: @escaping (NetworkSimpleEntry) -> Void) {
+        
         let entry = NetworkSimpleEntry(date: Date())
         completion(entry)
     }
-
+    
     func getTimeline(in context: Context, completion: @escaping (Timeline<NetworkSimpleEntry>) -> Void) {
-
-        var entries: [NetworkSimpleEntry] = []
-        let currentDate = Date()
         
-        // 每 6 小时创建一个条目，持续 24 小时
-        for hourOffset in 0..<24 where hourOffset % 6 == 0 {
-            let entryDate = Calendar.current.date(byAdding: .hour, value: hourOffset, to: currentDate)!
-            let entry = NetworkSimpleEntry(date: entryDate)
-            entries.append(entry)
+        Task {
+            let url = try? await DoggyFetcher.fetchRandomDoggy()
+            
+            let currentDate = Date()
+            ///小于等于5分钟，五分后30秒内才会刷新，大概率5分22秒，大于五分钟都会在自定义时间后的40秒内刷新时间线
+            let entry = NetworkSimpleEntry(date: currentDate, imageUrl: url)
+            
+            let nextUpdate = Calendar.current.date(byAdding: .minute, value: 5, to: currentDate)!
+            
+            let timeline = Timeline(
+                entries: [entry],
+                policy: .after(nextUpdate)
+            )
+            
+            completion(timeline)
         }
-
-        // 创建时间线
-        let timeline = Timeline(entries: entries, policy: .atEnd)
-        
-        completion(timeline)
     }
     
 }
 
 struct NetworkSimpleEntry: TimelineEntry {
     let date: Date
+    var imageUrl: URL?
 }
 
 struct NetworkEntryView: View {
     var entry: NetworkProvider.Entry
-
+    
     var body: some View {
-        Text(entry.date, style: .timer)
-            .frame(width: 56, height: 56)
-            .widgetBackground(Color.clear)
+        VStack(alignment: .leading, spacing: 3) {
+            
+            if let imageUrl = entry.imageUrl{
+                NetworkImage(url: imageUrl)
+                Text(entry.date, style: .timer)
+            }else{
+                Text("Loading...")
+                    .font(.headline)
+            }
+        }
+        .widgetBackground(Color.clear)
     }
+    
 }
 
 struct NetworkWidget: Widget {
-    let kind: String = "LearnWidget"
-
+    let kind: String = "NetworkWidget"
+    
     var body: some WidgetConfiguration {
         StaticConfiguration(kind: kind, provider: NetworkProvider()) { entry in
             NetworkEntryView(entry: entry)
         }
-        .configurationDisplayName("My Widget")
-        .description("This is an example widget.")
+        .configurationDisplayName("NetworkWidget")
+        .description("This is an NetworkWidget.")
+        .supportedFamilies([.systemSmall, .systemMedium, .systemLarge])
+        .onBackgroundURLSessionEvents { (sessionIdentifier, completion) in
+            WidgetCenter.shared.reloadAllTimelines()
+            completion()
+        }
     }
 }
- 
+
 @available(iOS 17.0, macOS 14.0, watchOS 10.0, visionOS 10.0, *)
 #Preview(as: .systemSmall) {
     NetworkWidget()
@@ -83,4 +102,37 @@ struct NetworkWidget: Widget {
     NetworkWidget()
 } timeline: {
     NetworkSimpleEntry(date: Date())
+}
+
+struct NetworkImage: View {
+    let url: URL?
+    var body: some View {
+        Group {
+            if let url = url, let imageData = try? Data(contentsOf: url), let uiImage = UIImage(data: imageData) {
+                Image(uiImage: uiImage)
+                    .resizable()
+                    .scaledToFit()
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+            }
+            else {
+                Text("Loading")
+            }
+        }
+    }
+}
+
+struct Doggy: Decodable {
+    let message: String
+    let status: String
+}
+
+struct DoggyFetcher {
+    
+    static func fetchRandomDoggy() async throws -> URL? {
+        let url = URL(string: "https://dog.ceo/api/breeds/image/random")!
+        let (data, _) = try await URLSession.shared.data(from: url)
+        let doggy = try JSONDecoder().decode(Doggy.self, from: data)
+        let result = URL(string: doggy.message)
+        return result
+    }
 }

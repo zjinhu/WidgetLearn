@@ -66,14 +66,15 @@ extension Date {
 
 
 struct OldWidget: Widget {
-    let kind: String = "LearnWidget"
+    let kind: String = "OldWidget"
 
     var body: some WidgetConfiguration {
         StaticConfiguration(kind: kind, provider: OldProvider()) { entry in
             OldEntryView(entry: entry)
         }
-        .configurationDisplayName("My Widget")
-        .description("This is an example widget.")
+        .configurationDisplayName("OldWidget")
+        .description("This is an OldWidget")
+        .supportedFamilies([.systemSmall, .systemMedium, .systemLarge])
     }
 }
 

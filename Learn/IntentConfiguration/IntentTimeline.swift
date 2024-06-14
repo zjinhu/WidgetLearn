@@ -60,29 +60,30 @@ struct MyWidgetEntryView : View {
     }
 }
 
-struct MyWidget: Widget {
-    let kind: String = "MyWidget"
-
-    var body: some WidgetConfiguration {
-        IntentConfiguration(kind: kind, intent: IntentWidgetConfigurationIntent.self, provider: IntentProvider()) { entry in
-            MyWidgetEntryView(entry: entry)
-        }
-        .configurationDisplayName("My Widget")
-        .description("This is an example widget.")
-    }
-}
-
-struct MyWidget_Previews: PreviewProvider {
-    static var previews: some View {
-        Group {
-            MyWidgetEntryView(entry: IntentSimpleEntry(date: Date(), configuration: IntentWidgetConfigurationIntent()))
-                .previewContext(WidgetPreviewContext(family: .systemSmall))
-            MyWidgetEntryView(entry: IntentSimpleEntry(date: Date(), configuration: IntentWidgetConfigurationIntent()))
-                .previewContext(WidgetPreviewContext(family: .systemMedium))
-            MyWidgetEntryView(entry: IntentSimpleEntry(date: Date(), configuration: IntentWidgetConfigurationIntent()))
-                .previewContext(WidgetPreviewContext(family: .systemLarge))
-            MyWidgetEntryView(entry: IntentSimpleEntry(date: Date(), configuration: IntentWidgetConfigurationIntent()))
-                .previewContext(WidgetPreviewContext(family: .systemExtraLarge))
-        }
-    }
-}
+//struct MyWidget: Widget {
+//    let kind: String = "MyWidget"
+//
+//    var body: some WidgetConfiguration {
+//        IntentConfiguration(kind: kind, intent: IntentWidgetConfigurationIntent.self, provider: IntentProvider()) { entry in
+//            MyWidgetEntryView(entry: entry)
+//        }
+//        .configurationDisplayName("My Widget")
+//        .description("This is an example widget.")
+//        .supportedFamilies([.systemSmall, .systemMedium, .systemLarge])
+//    }
+//}
+//
+//struct MyWidget_Previews: PreviewProvider {
+//    static var previews: some View {
+//        Group {
+//            MyWidgetEntryView(entry: IntentSimpleEntry(date: Date(), configuration: IntentWidgetConfigurationIntent()))
+//                .previewContext(WidgetPreviewContext(family: .systemSmall))
+//            MyWidgetEntryView(entry: IntentSimpleEntry(date: Date(), configuration: IntentWidgetConfigurationIntent()))
+//                .previewContext(WidgetPreviewContext(family: .systemMedium))
+//            MyWidgetEntryView(entry: IntentSimpleEntry(date: Date(), configuration: IntentWidgetConfigurationIntent()))
+//                .previewContext(WidgetPreviewContext(family: .systemLarge))
+//            MyWidgetEntryView(entry: IntentSimpleEntry(date: Date(), configuration: IntentWidgetConfigurationIntent()))
+//                .previewContext(WidgetPreviewContext(family: .systemExtraLarge))
+//        }
+//    }
+//}

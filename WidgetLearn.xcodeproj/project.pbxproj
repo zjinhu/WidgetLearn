@@ -104,6 +104,7 @@
 		8C982A412C1BD896002834EE /* LearnExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LearnExtension.entitlements; sourceTree = "<group>"; };
 		8CEDFF1C2C1BF277005E22D1 /* NetworkTimeline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkTimeline.swift; sourceTree = "<group>"; };
 		8CEDFF1E2C1BF2F9005E22D1 /* WidgetBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetBackground.swift; sourceTree = "<group>"; };
+		8CEDFF222C1C2281005E22D1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,6 +160,7 @@
 		8C8E2CEC2C17F1F300B87634 /* WidgetLearn */ = {
 			isa = PBXGroup;
 			children = (
+				8CEDFF222C1C2281005E22D1 /* Info.plist */,
 				8C8E2CED2C17F1F300B87634 /* WidgetLearnApp.swift */,
 				8C8E2CEF2C17F1F300B87634 /* Persistence.swift */,
 				8C8E2CF42C17F1F300B87634 /* ContentView.swift */,
@@ -560,6 +562,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = WidgetLearn/Info.plist;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -599,6 +602,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = WidgetLearn/Info.plist;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
