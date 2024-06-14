@@ -63,18 +63,24 @@ struct NetworkWidget: Widget {
         .description("This is an example widget.")
     }
 }
-
  
-struct NetworkWidget_Previews: PreviewProvider {
-    static var previews: some View {
-        Group {
-            NetworkEntryView(entry: NetworkSimpleEntry(date: Date()))
-                .previewContext(WidgetPreviewContext(family: .systemSmall))
-            NetworkEntryView(entry: NetworkSimpleEntry(date: Date()))
-                .previewContext(WidgetPreviewContext(family: .systemMedium))
-            NetworkEntryView(entry: NetworkSimpleEntry(date: Date()))
-                .previewContext(WidgetPreviewContext(family: .systemLarge))
-        }
-    }
+@available(iOS 17.0, macOS 14.0, watchOS 10.0, visionOS 10.0, *)
+#Preview(as: .systemSmall) {
+    NetworkWidget()
+} timeline: {
+    NetworkSimpleEntry(date: Date())
 }
 
+@available(iOS 17.0, macOS 14.0, watchOS 10.0, visionOS 10.0, *)
+#Preview(as: .systemMedium) {
+    NetworkWidget()
+} timeline: {
+    NetworkSimpleEntry(date: Date())
+}
+
+@available(iOS 17.0, macOS 14.0, watchOS 10.0, visionOS 10.0, *)
+#Preview(as: .systemLarge) {
+    NetworkWidget()
+} timeline: {
+    NetworkSimpleEntry(date: Date())
+}

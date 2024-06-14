@@ -25,42 +25,17 @@ struct OldProvider: TimelineProvider {
         // .atEnd 表示，所有的时间线条目完成之后重新刷新一次，表现就是这个getTimeline方法被回调一次
         // .after(date: Date) 表示，多久时间结束后再刷新一次
         // .never表示时间轴走完就不刷了
-
-        // 第一次刷新时间：延迟2秒刷
-        let firstDate = OldProvider.getFirstEntryDate()
-        // 第二次刷新时间：第一个整分钟时刷
-        let firstMinuteDate = OldProvider.getFirstMinuteEntryDate()
-        
+ 
         var entries: [OldSimpleEntry] = []
-        entries.append(OldSimpleEntry(date: firstDate))
-        entries.append(OldSimpleEntry(date: firstMinuteDate))
-        
-        // 后面以第一个整点分钟开始，每次加一分钟刷
-        for minuteOffset in 1 ..< 60 {
-            guard let entryDate = Calendar.current.date(byAdding: .minute, value: minuteOffset, to: firstMinuteDate) else {
-                continue
-            }
-            entries.append(OldSimpleEntry(date: entryDate))
-        }
-        let timeline = Timeline(entries: entries, policy: .never)
-        completion(timeline)
-    }
-    
-    static func getFirstEntryDate() -> Date {
-        //设置刷新延迟几秒：延迟0秒刷
-        let offsetSecond: TimeInterval = TimeInterval(0)
-        var currentDate = Date()
-        currentDate += offsetSecond
-        return currentDate
-    }
+        let currentDate = Date()
 
-    // 获取第一个分钟时间点所处的时间点
-    static func getFirstMinuteEntryDate() -> Date {
-        var currentDate = Date()
-        let passSecond = Calendar.current.component(.second, from: currentDate)
-        let offsetSecond: TimeInterval = TimeInterval(60 - passSecond)
-        currentDate += offsetSecond
-        return currentDate
+        let entryDate = Calendar.current.date(byAdding: .hour, value: 1, to: currentDate)!
+        let entry = OldSimpleEntry(date: entryDate)
+        entries.append(entry)
+
+        let timeline = Timeline(entries: entries, policy: .atEnd)
+
+        completion(timeline)
     }
 }
 
@@ -72,17 +47,23 @@ struct OldEntryView: View {
     var entry: OldProvider.Entry
 
     var body: some View {
-        Text(dateFormatter.string(from: entry.date))
-            .frame(width: 56, height: 56)
+        Text(Date().getCurrentDayStart(), style: .timer)
             .widgetBackground(Color.clear)
     }
-    
-    private var dateFormatter: DateFormatter {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "HH:mm:ss"
-        return formatter
-    }
 }
+
+extension Date {
+   func getCurrentDayStart()-> Date {
+       let calendar:Calendar = Calendar.current;
+       let year = calendar.component(.year, from: self);
+       let month = calendar.component(.month, from: self);
+       let day = calendar.component(.day, from: self);
+
+       let components = DateComponents(year: year, month: month, day: day, hour: 0, minute: 0, second: 0)
+       return Calendar.current.date(from: components)!
+   }
+}
+
 
 struct OldWidget: Widget {
     let kind: String = "LearnWidget"
