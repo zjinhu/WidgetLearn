@@ -1,0 +1,15 @@
+{
+  "originHash" : "022e41c137d50c3b4fd45da6b3560ac4caa3eda7fec72e079e548c4f983b9515",
+  "pins" : [
+    {
+      "identity" : "widgetanimationkit",
+      "kind" : "remoteSourceControl",
+      "location" : "https://gitee.com/zjinhu/widgetanimationkit",
+      "state" : {
+        "revision" : "868a8c70de7278267388523bb235fcea666c33c7",
+        "version" : "0.0.1"
+      }
+    }
+  ],
+  "version" : 3
+}

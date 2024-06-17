@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		8C0D01EF2C1BDCB3000A6851 /* LearnIntents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 8C0D01EE2C1BDCB3000A6851 /* LearnIntents.intentdefinition */; };
 		8C0D01F02C1BDCB3000A6851 /* LearnIntents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 8C0D01EE2C1BDCB3000A6851 /* LearnIntents.intentdefinition */; };
+		8C51101B2C1FE52C0054208F /* WidgetAnimationKit in Frameworks */ = {isa = PBXBuildFile; productRef = 8C51101A2C1FE52C0054208F /* WidgetAnimationKit */; };
 		8C8E2CEE2C17F1F300B87634 /* WidgetLearnApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8E2CED2C17F1F300B87634 /* WidgetLearnApp.swift */; };
 		8C8E2CF02C17F1F300B87634 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8E2CEF2C17F1F300B87634 /* Persistence.swift */; };
 		8C8E2CF32C17F1F300B87634 /* WidgetLearn.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8C8E2CF12C17F1F300B87634 /* WidgetLearn.xcdatamodeld */; };
@@ -30,6 +31,7 @@
 		8C982A3C2C1BD4B5002834EE /* LearnIntent.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 8C982A342C1BD4B5002834EE /* LearnIntent.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		8CEDFF202C1BF34E005E22D1 /* WidgetBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CEDFF1E2C1BF2F9005E22D1 /* WidgetBackground.swift */; };
 		8CEDFF212C1BF38C005E22D1 /* NetworkTimeline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CEDFF1C2C1BF277005E22D1 /* NetworkTimeline.swift */; };
+		8CEDFF252C1C48B4005E22D1 /* ClockTimeline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CEDFF242C1C48B4005E22D1 /* ClockTimeline.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +74,16 @@
 			name = "Embed ExtensionKit Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		8CEDFF3A2C1FD025005E22D1 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
@@ -105,6 +117,8 @@
 		8CEDFF1C2C1BF277005E22D1 /* NetworkTimeline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkTimeline.swift; sourceTree = "<group>"; };
 		8CEDFF1E2C1BF2F9005E22D1 /* WidgetBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetBackground.swift; sourceTree = "<group>"; };
 		8CEDFF222C1C2281005E22D1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		8CEDFF242C1C48B4005E22D1 /* ClockTimeline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockTimeline.swift; sourceTree = "<group>"; };
+		8CEDFF3D2C1FD111005E22D1 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/iOSSupport/System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +135,7 @@
 			files = (
 				8C8E2D0A2C17F20D00B87634 /* SwiftUI.framework in Frameworks */,
 				8C8E2D082C17F20D00B87634 /* WidgetKit.framework in Frameworks */,
+				8C51101B2C1FE52C0054208F /* WidgetAnimationKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -184,6 +199,7 @@
 			isa = PBXGroup;
 			children = (
 				8C8E2D072C17F20D00B87634 /* WidgetKit.framework */,
+				8CEDFF3D2C1FD111005E22D1 /* WidgetKit.framework */,
 				8C8E2D092C17F20D00B87634 /* SwiftUI.framework */,
 				8C9829CC2C19ADDF002834EE /* Intents.framework */,
 				8C9829D72C19ADDF002834EE /* IntentsUI.framework */,
@@ -196,6 +212,7 @@
 			children = (
 				8C8E2D0C2C17F20D00B87634 /* LearnBundle.swift */,
 				8CEDFF1E2C1BF2F9005E22D1 /* WidgetBackground.swift */,
+				8CEDFF232C1C489A005E22D1 /* Clock */,
 				8CEDFF1B2C1BF249005E22D1 /* Network */,
 				8CF67F212C1BF087007E5519 /* DynamicIsland */,
 				8CF67F202C1BF072007E5519 /* IntentConfiguration */,
@@ -223,6 +240,14 @@
 				8CEDFF1C2C1BF277005E22D1 /* NetworkTimeline.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		8CEDFF232C1C489A005E22D1 /* Clock */ = {
+			isa = PBXGroup;
+			children = (
+				8CEDFF242C1C48B4005E22D1 /* ClockTimeline.swift */,
+			);
+			path = Clock;
 			sourceTree = "<group>";
 		};
 		8CF67F1F2C1BF046007E5519 /* StaticConfiguration */ = {
@@ -263,6 +288,7 @@
 				8C8E2CE82C17F1F300B87634 /* Resources */,
 				8C8E2D1D2C17F20E00B87634 /* Embed Foundation Extensions */,
 				8C9829C62C19AD36002834EE /* Embed ExtensionKit Extensions */,
+				8CEDFF3A2C1FD025005E22D1 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -288,6 +314,9 @@
 			dependencies = (
 			);
 			name = LearnExtension;
+			packageProductDependencies = (
+				8C51101A2C1FE52C0054208F /* WidgetAnimationKit */,
+			);
 			productName = LearnExtension;
 			productReference = 8C8E2D052C17F20D00B87634 /* LearnExtension.appex */;
 			productType = "com.apple.product-type.app-extension";
@@ -339,6 +368,9 @@
 				Base,
 			);
 			mainGroup = 8C8E2CE12C17F1F300B87634;
+			packageReferences = (
+				8C5110192C1FE52C0054208F /* XCRemoteSwiftPackageReference "widgetanimationkit" */,
+			);
 			productRefGroup = 8C8E2CEB2C17F1F300B87634 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -398,6 +430,7 @@
 				8C8E2D132C17F20D00B87634 /* AppIntent.swift in Sources */,
 				8C9829B42C19ABE0002834EE /* IntentTimeline.swift in Sources */,
 				8C8E2D0F2C17F20D00B87634 /* LearnLiveActivity.swift in Sources */,
+				8CEDFF252C1C48B4005E22D1 /* ClockTimeline.swift in Sources */,
 				8C0D01EF2C1BDCB3000A6851 /* LearnIntents.intentdefinition in Sources */,
 				8CEDFF202C1BF34E005E22D1 /* WidgetBackground.swift in Sources */,
 				8C9829B22C19A5AB002834EE /* StaticTimeline.swift in Sources */,
@@ -786,6 +819,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		8C5110192C1FE52C0054208F /* XCRemoteSwiftPackageReference "widgetanimationkit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://gitee.com/zjinhu/widgetanimationkit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.0.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		8C51101A2C1FE52C0054208F /* WidgetAnimationKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8C5110192C1FE52C0054208F /* XCRemoteSwiftPackageReference "widgetanimationkit" */;
+			productName = WidgetAnimationKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		8C8E2CF12C17F1F300B87634 /* WidgetLearn.xcdatamodeld */ = {
