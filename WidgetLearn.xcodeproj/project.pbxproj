@@ -10,6 +10,7 @@
 		8C0D01EF2C1BDCB3000A6851 /* LearnIntents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 8C0D01EE2C1BDCB3000A6851 /* LearnIntents.intentdefinition */; };
 		8C0D01F02C1BDCB3000A6851 /* LearnIntents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 8C0D01EE2C1BDCB3000A6851 /* LearnIntents.intentdefinition */; };
 		8C51101B2C1FE52C0054208F /* WidgetAnimationKit in Frameworks */ = {isa = PBXBuildFile; productRef = 8C51101A2C1FE52C0054208F /* WidgetAnimationKit */; };
+		8C8249942C241CA7004F1FE2 /* AnimationTimeLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8249922C241C99004F1FE2 /* AnimationTimeLine.swift */; };
 		8C8E2CEE2C17F1F300B87634 /* WidgetLearnApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8E2CED2C17F1F300B87634 /* WidgetLearnApp.swift */; };
 		8C8E2CF02C17F1F300B87634 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8E2CEF2C17F1F300B87634 /* Persistence.swift */; };
 		8C8E2CF32C17F1F300B87634 /* WidgetLearn.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8C8E2CF12C17F1F300B87634 /* WidgetLearn.xcdatamodeld */; };
@@ -88,6 +89,7 @@
 
 /* Begin PBXFileReference section */
 		8C0D01EE2C1BDCB3000A6851 /* LearnIntents.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = LearnIntents.intentdefinition; sourceTree = "<group>"; };
+		8C8249922C241C99004F1FE2 /* AnimationTimeLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationTimeLine.swift; sourceTree = "<group>"; };
 		8C8E2CEA2C17F1F300B87634 /* WidgetLearn.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WidgetLearn.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C8E2CED2C17F1F300B87634 /* WidgetLearnApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetLearnApp.swift; sourceTree = "<group>"; };
 		8C8E2CEF2C17F1F300B87634 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
@@ -150,6 +152,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8C8249912C241C5A004F1FE2 /* Animation */ = {
+			isa = PBXGroup;
+			children = (
+				8C8249922C241C99004F1FE2 /* AnimationTimeLine.swift */,
+			);
+			path = Animation;
+			sourceTree = "<group>";
+		};
 		8C8E2CE12C17F1F300B87634 = {
 			isa = PBXGroup;
 			children = (
@@ -212,6 +222,7 @@
 			children = (
 				8C8E2D0C2C17F20D00B87634 /* LearnBundle.swift */,
 				8CEDFF1E2C1BF2F9005E22D1 /* WidgetBackground.swift */,
+				8C8249912C241C5A004F1FE2 /* Animation */,
 				8CEDFF232C1C489A005E22D1 /* Clock */,
 				8CEDFF1B2C1BF249005E22D1 /* Network */,
 				8CF67F212C1BF087007E5519 /* DynamicIsland */,
@@ -431,6 +442,7 @@
 				8C9829B42C19ABE0002834EE /* IntentTimeline.swift in Sources */,
 				8C8E2D0F2C17F20D00B87634 /* LearnLiveActivity.swift in Sources */,
 				8CEDFF252C1C48B4005E22D1 /* ClockTimeline.swift in Sources */,
+				8C8249942C241CA7004F1FE2 /* AnimationTimeLine.swift in Sources */,
 				8C0D01EF2C1BDCB3000A6851 /* LearnIntents.intentdefinition in Sources */,
 				8CEDFF202C1BF34E005E22D1 /* WidgetBackground.swift in Sources */,
 				8C9829B22C19A5AB002834EE /* StaticTimeline.swift in Sources */,
